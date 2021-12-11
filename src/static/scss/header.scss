@@ -1,0 +1,74 @@
+@import "./style.scss";
+
+.header {
+    height: $header-height-max;
+    background-color: $beige;
+    padding: $header-py-max $header-px-max;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+
+    .logo-mgx {
+        height: 100%;
+        width: auto;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        padding-bottom: 5px;
+        .nav-item {
+            color: $black;
+            text-decoration: none;
+            margin-right: 10px;
+            &:hover,
+            &.active {
+                border-bottom: 1px solid $black;
+            }
+        }
+    }
+}
+
+/**
+* MEDIUM
+*/
+@media (min-width: $responsive-min) and (max-width: $responsive-med) {
+    .header {
+        height: $header-height-med;
+        padding: $header-py-med $header-px-med;
+    }
+}
+
+/**
+* MINIMUM
+*/
+@media (max-width: $responsive-min) {
+    .header {
+        height: $header-height-min;
+        padding: $header-py-min $header-px-min;
+        position: fixed;
+        svg {
+            position: absolute;
+            right: calc($header-px-min);
+            top: calc($header-py-min + 25%);
+        }
+
+        .Collapsible__contentInner {
+            background-color: $beige;
+            padding: 30px 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        > .btn-view-more {
+            display: "none";
+        }
+        .nav-links {
+            padding-bottom: 0;
+            > .nav-item {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
